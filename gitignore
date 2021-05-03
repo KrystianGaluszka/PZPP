@@ -1,0 +1,5 @@
+.idea
+.vs
+ALLEGRO/bin/*
+ALLEGRO/obj/*
+ALLEGRO/Properties/*
