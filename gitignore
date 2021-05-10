@@ -1,5 +1,5 @@
-.idea
-.vs
-ALLEGRO/bin/*
-ALLEGRO/obj/*
-ALLEGRO/Properties/*
+.idea/
+.vs/
+ALLEGRO/bin/**
+ALLEGRO/obj/**
+ALLEGRO/Properties/**
