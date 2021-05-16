@@ -7,20 +7,9 @@ using System.Threading.Tasks;
 
 namespace wqasdasda.Models
 {
-        public enum AdType
-        {
-            Motoryzacja,
-            Sport,
-            Dom,
-            Ogród,
-            Usługi,
-            Turystyka,
-            Elektronika,
-            Zdrowie
-        }
-
         public class AdvertisementModel
         {
+        public int Id { get; set; }
             [Display(Name = "Nazwa przedmiotu")]
             [Required(ErrorMessage = "Nazwa musi mieć min. 6 znaków")]
             public string Title { get; set; }
@@ -29,10 +18,12 @@ namespace wqasdasda.Models
             [Required(ErrorMessage = "Opis musi zawierać min. 30 znaków")]
             public string Description { get; set; }
 
-            public IEnumerable<IFormFile> Picture { get; set; }
+            //public IEnumerable<IFormFile> Picture { get; set; }
 
             [Display(Name = "Kategoria")]
-            public AdType? Category { get; set; }
-        }
+            public AdType Category { get; set; }
+            public virtual AdType TypeAd { get; set; }
+
     }
+}
 
