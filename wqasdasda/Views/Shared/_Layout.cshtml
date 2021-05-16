@@ -31,9 +31,6 @@
                         <li class="nav-item">
                             <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Index">List</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Create">Create</a>
-                        </li>
                         @if (signInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                         {
 
@@ -45,10 +42,20 @@
                                     <a asp-action="ListUsers" asp-controller="Administrator" class="dropdown-item">Users</a>
                                     <a asp-action="ListRoles" asp-controller="Administrator" class="dropdown-item">Roles</a>
                                 </div>
-                            </li> 
-                            
+                            </li>
                         }
-
+                        @if (signInManager.IsSignedIn(User))
+                        {
+                            <li class="dropdown nav-item">
+                                <a class="nav-link dropdown-toggle text-light" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dodaj...
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <a href="#" class="dropdown-item">Ogłoszenie</a>
+                                    <a href="#" class="dropdown-item">Aukcje</a>
+                                </div>
+                            </li>
+                        }
 
                     </ul>
                     <ul class="navbar-nav ml-auto">
@@ -63,10 +70,10 @@
                         else
                         {
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Register">Register</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Register">Rejestracja</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Login">Login</a>
+                                <a class="nav-link text-light" asp-area="" asp-controller="Account" asp-action="Login">Zaloguj</a>
                             </li>
                         }
 
