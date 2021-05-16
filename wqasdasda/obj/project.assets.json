@@ -5959,11 +5959,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tuxedo\\source\\repos\\wqasdasda\\wqasdasda\\wqasdasda.csproj",
+      "projectUniqueName": "C:\\Users\\tuxedo\\Desktop\\test\\wqasdasda\\wqasdasda.csproj",
       "projectName": "wqasdasda",
-      "projectPath": "C:\\Users\\tuxedo\\source\\repos\\wqasdasda\\wqasdasda\\wqasdasda.csproj",
+      "projectPath": "C:\\Users\\tuxedo\\Desktop\\test\\wqasdasda\\wqasdasda.csproj",
       "packagesPath": "C:\\Users\\tuxedo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tuxedo\\source\\repos\\wqasdasda\\wqasdasda\\obj\\",
+      "outputPath": "C:\\Users\\tuxedo\\Desktop\\test\\wqasdasda\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\"

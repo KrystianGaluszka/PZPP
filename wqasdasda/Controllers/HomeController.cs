@@ -30,8 +30,7 @@ namespace wqasdasda.Controllers
         [AllowAnonymous]
         public ViewResult Index()
         {
-            var model = _employeeRepository.GetAllEmployee();
-            return View(model);
+            return View();
         }
 
         public IActionResult Privacy()
