@@ -60,6 +60,17 @@ namespace wqasdasda.Controllers
             };
             return View(homeDetailsViewModel);
         }
+        
+        [HttpGet]
+        public IActionResult Auction()
+        {
+            return View();
+        }
+        [HttpGet]
+        public IActionResult Advertisment()
+        {
+            return View();
+        }
 
         [HttpGet]
         public ViewResult Create()

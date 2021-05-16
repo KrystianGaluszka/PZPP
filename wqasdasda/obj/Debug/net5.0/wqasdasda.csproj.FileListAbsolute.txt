@@ -182,3 +182,4 @@ C:\Users\tuxedo\Desktop\test\wqasdasda\obj\Debug\net5.0\wqasdasda.dll
 C:\Users\tuxedo\Desktop\test\wqasdasda\obj\Debug\net5.0\ref\wqasdasda.dll
 C:\Users\tuxedo\Desktop\test\wqasdasda\obj\Debug\net5.0\wqasdasda.pdb
 C:\Users\tuxedo\Desktop\test\wqasdasda\obj\Debug\net5.0\wqasdasda.genruntimeconfig.cache
+C:\Users\tuxedo\Desktop\test\wqasdasda\obj\Debug\net5.0\Razor\Views\Home\Auction.cshtml.g.cs
