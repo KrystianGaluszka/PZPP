@@ -331,3 +331,5 @@ C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\Advertisement\obj\Debug\net5.0\Adv
 C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\Advertisement\obj\Debug\net5.0\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\Advertisement\obj\Debug\net5.0\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\Advertisement\obj\Debug\net5.0\Razor\Views\Advertisement\AddAd.cshtml.g.cs
+C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\Advertisement\bin\Debug\net5.0\FluentValidation.dll
+C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\Advertisement\bin\Debug\net5.0\nunit.framework.dll
