@@ -1,4 +1,6 @@
-﻿using Advertisement.Models;
+﻿using Advertisement.Data;
+using Advertisement.Models;
+using Advertisement.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,15 +14,29 @@ namespace Advertisement.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var getData = _context.Advertisements;
+            var data = new HomeIndexViewModel
+            {
+                AdvertiseList = getData.Select(x => new AdvertisementViewModel
+                {
+                    Title = x.Title,
+                    PicturesCol = x.PicturesCol,
+                    AdTypes = x.AdTypes,
+                    Description = x.Description,
+                    Id = x.Id  
+                })
+            };
+            return View(data);
         }
 
         public IActionResult Privacy()
@@ -33,5 +49,11 @@ namespace Advertisement.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        //public IActionResult OnGetPartial() =>
+        //    new PartialViewResult
+        //    {
+        //        ViewData = _context.Advertisements,
+        //        ViewName = "_advertiseList"
+        //    };
     }
 }

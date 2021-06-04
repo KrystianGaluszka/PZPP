@@ -14,7 +14,7 @@ namespace Advertisement.ViewModels
         [DataType(DataType.Text)]
         public string FirstName { get; set; }
 
-        [Display(Name = "Imię")]
+        [Display(Name = "Nazwisko")]
         [Required(ErrorMessage = "To pole musi być wypełnione")]
         [DataType(DataType.Text)]
         public string LastName { get; set; }

@@ -10,6 +10,7 @@ namespace Advertisement.ViewModels
     public class AdvertisementViewModel
     {
 
+        public int Id { get; set; }
         [Display(Name = "Tytuł")]
         [Required(ErrorMessage = "To pole musi być wypełnione")]
         public string Title { get; set; }

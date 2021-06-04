@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Advertisement.ViewModels.AdvertisementViewModel>
+@*@{
+    var list = ViewBag.List as IEnumerable<Advertisements>;
+}*@
+
+
+
+
+
+
+<div class="row product-container">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+            <div class="thumbnail product-item" style="height:300px">
+                <a style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = item.Id, adName = item.Title })">
+                    <img class="img-responsive" title="Click to View Product detail"
+                         style="cursor:pointer;height:160px;width:100%"
+                         src="~/AdPictures/@item.PicturesCol.FirstOrDefault().Name" />
+
+                    <div class="caption">
+                        <h5>@item.Title</h5>
+                        <p>@item.AdTypes</p>
+
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    }
+</div>
