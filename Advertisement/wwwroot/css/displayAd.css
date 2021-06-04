@@ -1,0 +1,11 @@
+﻿#image {
+    
+    height: 30vh !important;
+}
+.carousel {
+    width: 45%;
+    height: 30vh !important;
+    display:block;
+    margin: 0 auto;
+}
+    

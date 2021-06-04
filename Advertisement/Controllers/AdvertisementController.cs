@@ -35,8 +35,6 @@ namespace Advertisement.Controllers
         [HttpPost]
         public IActionResult AddAd(AdvertisementViewModel adModel)
         {
-            var id = _context.Advertisements.Count() + 1;
-
             var pictures = new Pictures();
             var files = HttpContext.Request.Form.Files;
             foreach (var file in files)
@@ -54,33 +52,36 @@ namespace Advertisement.Controllers
                         Directory.CreateDirectory(folderPath);
                     }
                     string filePath = Path.Combine(folderPath, file.FileName);
-                    pictures = new Pictures() { Name = file.Name, PicturePath = filePath, AdvertisementId = id };
+                    pictures = new Pictures() { Name = file.FileName, PicturePath = filePath };
                     adModel.PicturesCol.Add(pictures);
-
-                    var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-                    var advertisement = new Advertisements
-                    {
-                        Title = adModel.Title,
-                        Description = adModel.Description,
-                        AdTypes = adModel.AdTypes,
-                        UserId = userId,
-                        PicturesCol = adModel.PicturesCol
-                    };
-                    _context.Advertisements.Add(advertisement);
-                    _context.SaveChanges();
                     using (var fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
                     {
                         file.CopyTo(fs);
                     }
                 }
-                
-
-
             }
-            return View();
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var advertisement = new Advertisements
+            {
+                Title = adModel.Title,
+                Description = adModel.Description,
+                AdTypes = adModel.AdTypes,
+                UserId = userId,
+                PicturesCol = adModel.PicturesCol
+            };
+            _context.Advertisements.Add(advertisement);
+            _context.SaveChanges();
+            int id = _context.Advertisements.OrderBy(x => x.Id).LastOrDefault().Id;
+            return RedirectToAction(nameof(AdvertisementDisplay), new {id = id, adName = adModel.Title });
         }
-        public IActionResult AdvertisementDisplay()
+        public IActionResult AdvertisementDisplay(int id, string adName)
         {
+            var adList = _context.Advertisements.ToList();
+            var picList = _context.Pictures.ToList();
+            ViewBag.PicList = picList;
+            ViewBag.List = adList;
+            ViewBag.Id = id;
+            ViewBag.Name = adName;
             return View();
         }
         bool fileValid(string fileName)

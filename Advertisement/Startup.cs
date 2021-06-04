@@ -68,7 +68,7 @@ namespace Advertisement
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapControllerRoute(
                     name: "advertisement",
-                    pattern: "{controller=Advertisement}/{action=DisplayAdvertisement}/{name?}");
+                    pattern: "{controller=Advertisement}/{action=AdvertisementDisplay}/{id?}/{name?}");
                 endpoints.MapRazorPages();
             });
         }

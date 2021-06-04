@@ -222,3 +222,4 @@ C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\ProjectTest\obj\Debug\net5.0\Proje
 C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\ProjectTest\obj\Debug\net5.0\ref\ProjectTest.dll
 C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\ProjectTest\obj\Debug\net5.0\ProjectTest.pdb
 C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\ProjectTest\obj\Debug\net5.0\ProjectTest.genruntimeconfig.cache
+C:\Users\Krystian\Desktop\PZPP-nowesuperfajne\ProjectTest\bin\Debug\net5.0\Advertisement.StaticWebAssets.xml
