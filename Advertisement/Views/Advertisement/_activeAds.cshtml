@@ -4,52 +4,57 @@
 <script src="https://kit.fontawesome.com/8dd6c3ac84.js" crossorigin="anonymous"></script>
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 <link href="~/css/Advertise.css" rel="stylesheet" />
-<h3>ACTIVE</h3>
 
+@if (Model.Count() == 0)
+{
+    <h2 class="text-danger">Nie masz żadnych ogłoszeń</h2>
+}
+else
+{
 <div class="card-deck">
-    @if (Model.Count() == 0)
+    @foreach (var ad in Model)
     {
-        <h2 class="text-danger">Nie masz żadnych ogłoszeń</h2>
-    }
-    else
-    {
-        @foreach (var ad in Model)
+        var isActive = ad.Active ? "Aktywne" : "Nieaktywne";
+
+        @if (ad.PicturesCol.Count != 0)
         {
-            var isActive = ad.Active ? "Aktywne" : "Nieaktywne";
-
-            @if (ad.PicturesCol.Count != 0)
-            {
-                <div class="card m-3" style="min-width:18rem; max-width:30.5%;">
-                    <div class="card-header"><h4>@ad.Title</h4></div>
-                        <img class="card-img-top imgThumb" asp-append-version="true" src="~/AdPictures/@ad.PicturesCol.FirstOrDefault().Name" />
-                        <div class="card-footer">
-                            <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
-                            <p class="card-text text-success">Status: @isActive</p>
-                            <a href="@Url.Action("Deactivate", "Advertisement", new { id = ad.Id })" class="btn btn-secondary">Dezaktywuj</a>
-                            <a class="btn btn-secondary" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })">Show</a>
-                        </div>
-
+            <div class="card m-3" style="min-width:18rem; max-width:30.5%;">
+                <div class="card-header"><h4>@ad.Title</h4></div>
+                <img class="card-img-top imgThumb" asp-append-version="true" src="~/AdPictures/@ad.PicturesCol.FirstOrDefault().Name" />
+                <div class="card-footer">
+                    <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
+                    <p class="card-text text-success">Status: @isActive</p>
+                    <a asp-action="Deactivate" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-secondary"><i class="fas fa-ban"></i></a>
+                    <a class="btn btn-info" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })"><i class="far fa-eye"></i></a>
                 </div>
-            }
-            else
-            {
-                <div class="card m-3" style="min-width:18rem; max-width:30.5%;">
-                    <div class="card-header"><h4>@ad.Title</h4></div>
-                        <img class="card-img-top imgThumb" asp-append-version="true" src="~/Img/icons8-no-image-100.png" />
-                        <div class="card-footer">
-                            <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
-                            <p class="card-text text-success">Status: @isActive</p>
-                            <a href="@Url.Action("Deactivate", "Advertisement", new { id = ad.Id })" class="btn btn-secondary">Dezaktywuj</a>
-                            <a class="btn btn-secondary" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })">Show</a>
-                        </div>
+
+            </div>
+        }
+        else
+        {
+            <div class="card m-3" style="min-width:18rem; max-width:30.5%;">
+                <div class="card-header"><h4>@ad.Title</h4></div>
+                <img class="card-img-top imgThumb" asp-append-version="true" src="~/Img/icons8-no-image-100.png" />
+                <div class="card-footer">
+                    <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
+                    <p class="card-text text-success">Status: @isActive</p>
+                    <a asp-action="Deactivate" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-secondary"><i class="fas fa-ban"></i></a>
+                    <a class="btn btn-info" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })"><i class="far fa-eye"></i></a>
                 </div>
-            }
+            </div>
         }
     }
 </div>
-<br /><br /><br /><br /><br /><br />
+}
 
-    @section Scripts {
-        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 
-    }
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

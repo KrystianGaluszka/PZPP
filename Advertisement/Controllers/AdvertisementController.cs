@@ -121,22 +121,6 @@ namespace Advertisement.Controllers
 
             return View(model);
         }
-        [Authorize]
-        [HttpPost]
-        public IActionResult ActiveAds(string id)
-        {
-            var model = _context.Advertisements.ToList();
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            ViewBag.UserId = userId;
-            return PartialView("_activeAds", model);
-        }
-        public IActionResult DeactivatedAds(string id)
-        {
-            var model = _context.Advertisements.ToList();
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            ViewBag.UserId = userId;
-            return PartialView("_deactivatedAds");
-        }
         public IActionResult DeleteAd(int id)
         {
             var ad = _context.Advertisements.Where(x => x.Id == id).FirstOrDefault();
@@ -144,7 +128,6 @@ namespace Advertisement.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(UserAds));
         }
-        [Authorize]
         public IActionResult Deactivate(int id)
         {
             var ad = new Advertisements()
@@ -152,7 +135,17 @@ namespace Advertisement.Controllers
                 Id = id,
                 Active = false
             };
-            //_context.Attach(ad);
+            _context.Entry(ad).Property(x => x.Active).IsModified = true;
+            _context.SaveChanges();
+            return RedirectToAction(nameof(UserAds));
+        }
+        public IActionResult Activate(int id)
+        {
+            var ad = new Advertisements()
+            {
+                Id = id,
+                Active = true
+            };
             _context.Entry(ad).Property(x => x.Active).IsModified = true;
             _context.SaveChanges();
             return RedirectToAction(nameof(UserAds));

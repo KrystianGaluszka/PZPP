@@ -4,7 +4,7 @@
 <script src="https://kit.fontawesome.com/8dd6c3ac84.js" crossorigin="anonymous"></script>
 <link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
 <link href="~/css/Advertise.css" rel="stylesheet" />
-<h3>DEACTIVATED</h3>
+
 @if (Model.Count() == 0)
 {
     <caption>Nie masz żadnych ogłoszeń</caption>
@@ -23,7 +23,9 @@ else
                 <div class="card-footer">
                     <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
                     <p class="card-text text-danger">Status: @isActive</p>
-                    <a href="@Url.Action("DeleteAd", "Advertisement")" class="btn btn-danger">Usuń</a>
+                    <a class="btn btn-info" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })"><i class="far fa-eye"></i></a>
+                    <a asp-action="DeleteAd" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                    <a asp-action="Activate" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-success"><i class="fas fa-check"></i></a>
                 </div>
             </div>
         }
@@ -35,7 +37,9 @@ else
                 <div class="card-footer">
                     <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
                     <p class="card-text text-danger">Status: @isActive</p>
-                    <a href="@Url.Action("DeleteAd", "Advertisement")" class="btn btn-danger">Usuń</a>
+                    <a class="btn btn-info" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })"><i class="far fa-eye"></i></a>
+                    <a asp-action="DeleteAd" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                    <a asp-action="Activate" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-success"><i class="fas fa-check"></i></a>
                 </div>
             </div>
         }
