@@ -1,6 +1,7 @@
 ﻿using Advertisement.Data;
 using Advertisement.Models;
 using Advertisement.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Advertisement.Controllers
 {
+    
     public class AdvertisementController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -29,11 +31,13 @@ namespace Advertisement.Controllers
             _userManager = userManager;
             _signInManager = signInManager;
         }
+        [Authorize]
         [HttpGet]
         public IActionResult AddAd()
         {
             return View();
         }
+        [Authorize]
         [HttpPost]
         public IActionResult AddAd(AdvertisementViewModel adModel)
         {
@@ -95,6 +99,7 @@ namespace Advertisement.Controllers
             ViewBag.Name = adName;
             return View();
         }
+        [Authorize]
         public IActionResult UserAds()
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
@@ -116,6 +121,7 @@ namespace Advertisement.Controllers
 
             return View(model);
         }
+        [Authorize]
         [HttpPost]
         public IActionResult ActiveAds(string id)
         {
@@ -138,7 +144,7 @@ namespace Advertisement.Controllers
             _context.SaveChanges();
             return RedirectToAction(nameof(UserAds));
         }
-
+        [Authorize]
         public IActionResult Deactivate(int id)
         {
             var ad = new Advertisements()
