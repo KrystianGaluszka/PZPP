@@ -11,38 +11,36 @@
 }
 else
 {
+<div class="card-deck">
     @foreach (var ad in Model)
     {
-    var isActive = ad.Active ? "Aktywne" : "Nieaktywne";
-    <div class="card" style="width: 18rem;">
+        var isActive = ad.Active ? "Aktywne" : "Nieaktywne";
         @if (ad.PicturesCol.Count != 0)
         {
-            <div class="img-thumbnail">
-                <a style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })">
-                    <img class="img-responsive"
-                            style="cursor:pointer;height:180px;width:100%"
-                            src="~/AdPictures/@ad.PicturesCol.FirstOrDefault().Name" />
-                </a>
+            <div class="card m-3" style="min-width:18rem; max-width:30.5%;">
+                <div class="card-header"><h4>@ad.Title</h4></div>
+                <img class="card-img-top imgThumb" asp-append-version="true" src="~/AdPictures/@ad.PicturesCol.FirstOrDefault().Name" />
+                <div class="card-footer">
+                    <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
+                    <p class="card-text text-danger">Status: @isActive</p>
+                    <a href="@Url.Action("DeleteAd", "Advertisement")" class="btn btn-danger">Usuń</a>
+                </div>
             </div>
         }
         else
         {
-            <div class="img-thumbnail">
-                <a style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })">
-                    <img class="img-responsive"
-                            style="cursor:pointer;height:180px;width:100%"
-                            src="~/Img/icons8-no-image-100.png" />
-                </a>
+            <div class="card m-3" style="min-width:18rem; max-width:30.5%;">
+                <div class="card-header"><h4>@ad.Title</h4></div>
+                <img class="card-img-top imgThumb" asp-append-version="true" src="~/Img/icons8-no-image-100.png" />
+                <div class="card-footer">
+                    <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
+                    <p class="card-text text-danger">Status: @isActive</p>
+                    <a href="@Url.Action("DeleteAd", "Advertisement")" class="btn btn-danger">Usuń</a>
+                </div>
             </div>
         }
-        <div class="card-body">
-            <h5 class="card-title">@ad.Title</h5>
-            <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
-            <p class="card-text">Status: @isActive</p>
-            <a href="@Url.Action("DeleteAd", "Advertisement")" class="btn btn-danger">Usuń</a>
-        </div>
-    </div>
     }
+</div>
 }
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}

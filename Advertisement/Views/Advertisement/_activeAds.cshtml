@@ -24,20 +24,12 @@
                         <img class="card-img-top imgThumb" asp-append-version="true" src="~/AdPictures/@ad.PicturesCol.FirstOrDefault().Name" />
                         <div class="card-footer">
                             <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
-                            <p class="card-text">Status: @isActive</p>
+                            <p class="card-text text-success">Status: @isActive</p>
                             <a href="@Url.Action("Deactivate", "Advertisement", new { id = ad.Id })" class="btn btn-secondary">Dezaktywuj</a>
                             <a class="btn btn-secondary" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })">Show</a>
                         </div>
 
                 </div>
-                @*<div class="card">
-                        <div class="card-title">
-                            <a style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })"></a>
-                        </div>
-                        <img class="img-responsive img-thumbnail"
-                             style="cursor:pointer;height:180px;width:100%"
-                             src="~/AdPictures/@ad.PicturesCol.FirstOrDefault().Name" />
-                    </div>*@
             }
             else
             {
@@ -46,28 +38,12 @@
                         <img class="card-img-top imgThumb" asp-append-version="true" src="~/Img/icons8-no-image-100.png" />
                         <div class="card-footer">
                             <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
-                            <p class="card-text">Status: @isActive</p>
+                            <p class="card-text text-success">Status: @isActive</p>
                             <a href="@Url.Action("Deactivate", "Advertisement", new { id = ad.Id })" class="btn btn-secondary">Dezaktywuj</a>
                             <a class="btn btn-secondary" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })">Show</a>
                         </div>
-
                 </div>
-                @*<div class="img-thumbnail">
-                        <a style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })">
-                            <img class="img-responsive"
-                                 style="cursor:pointer;height:180px;width:100%"
-                                 src="~/Img/icons8-no-image-100.png" />
-                        </a>
-                    </div>*@
             }
-            @*<div class="card">
-                    <div class="card-title"><h5>@ad.Title</h5></div>
-                    <div class="card-body">
-                        <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
-                        <p class="card-text">Status: @isActive</p>
-                        <a href="@Url.Action("Deactivate", "Advertisement", new { id = ad.Id })" class="btn btn-secondary">Dezaktywuj</a>
-                    </div>
-                </div>*@
         }
     }
 </div>
