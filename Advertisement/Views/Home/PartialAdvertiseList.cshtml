@@ -11,19 +11,19 @@
 <div class="row product-container">
     @foreach (var item in Model)
     {
-        <div class="col-md-3 col-sm-3 col-xs-6" style="margin-bottom:8px">
+        <div class="col-md-3 mt-4 mb-1" style="margin-bottom:8px">
             <div class="thumbnail product-item" style="height:300px">
-                <a style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = item.Id, adName = item.Title })">
+                <a  style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = item.Id, adName = item.Title })">
                     @if (item.PicturesCol.Count == 0)
                     {
-                    <img class="img-responsive" title="Click to View Product detail"
-                         style="cursor:pointer;display:block;margin:0 auto;"
+                    <img title="Click to View Product detail" class="imgThumb mt-5"
+                         style="cursor:pointer;height:228px;width:99%"
                          src="~/Img/icons8-no-image-100.png" />
                     }
                     else
                     {
-                    <img class="img-responsive" title="Click to View Product detail"
-                            style="cursor:pointer;height:128px;width:100%"
+                    <img title="Click to View Product detail" class="imgThumb mt-5"
+                            style="cursor: pointer; height: 228px; width: 99%"
                             src="~/AdPictures/@item.PicturesCol.FirstOrDefault().Name" />
                     }
                     <div class="caption">
