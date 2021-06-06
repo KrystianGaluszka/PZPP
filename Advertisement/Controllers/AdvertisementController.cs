@@ -19,13 +19,15 @@ namespace Advertisement.Controllers
         private IWebHostEnvironment _env;
         private string _dir;
         private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _signInManager;
 
-        public AdvertisementController(IWebHostEnvironment environment, ApplicationDbContext context, UserManager<IdentityUser> userManager)
+        public AdvertisementController(IWebHostEnvironment environment, ApplicationDbContext context, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
             this._env = environment;
             _dir = _env.WebRootPath;
             _context = context;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
         [HttpGet]
         public IActionResult AddAd()
@@ -35,28 +37,35 @@ namespace Advertisement.Controllers
         [HttpPost]
         public IActionResult AddAd(AdvertisementViewModel adModel)
         {
+            if(!(_signInManager.IsSignedIn(User)))
+            {
+                return RedirectToAction("Login", "Account", new {id = "niezalogowany"});
+            }
             var pictures = new Pictures();
             var files = HttpContext.Request.Form.Files;
-            foreach (var file in files)
+            if(files.Count != 0 || files != null)
             {
-                if (!(fileValid(file.FileName)))
+                foreach (var file in files)
                 {
-                    TempData["imgMsg"] = "Plik musi być zdjęciem";
-                    return RedirectToAction(nameof(AddAd));
-                }
-                if (file != null)
-                {
-                    string folderPath = Path.Combine(_dir, $"AdPictures");
-                    if (!Directory.Exists(folderPath))
+                    if (!(fileValid(file.FileName)))
                     {
-                        Directory.CreateDirectory(folderPath);
+                        TempData["imgMsg"] = "Plik musi być zdjęciem";
+                        return RedirectToAction(nameof(AddAd));
                     }
-                    string filePath = Path.Combine(folderPath, file.FileName);
-                    pictures = new Pictures() { Name = file.FileName, PicturePath = filePath };
-                    adModel.PicturesCol.Add(pictures);
-                    using (var fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+                    if (file != null)
                     {
-                        file.CopyTo(fs);
+                        string folderPath = Path.Combine(_dir, $"AdPictures");
+                        if (!Directory.Exists(folderPath))
+                        {
+                            Directory.CreateDirectory(folderPath);
+                        }
+                        string filePath = Path.Combine(folderPath, file.FileName);
+                        pictures = new Pictures() { Name = file.FileName, PicturePath = filePath };
+                        adModel.PicturesCol.Add(pictures);
+                        using (var fs = new FileStream(filePath, FileMode.Create, FileAccess.Write))
+                        {
+                            file.CopyTo(fs);
+                        }
                     }
                 }
             }
@@ -67,7 +76,9 @@ namespace Advertisement.Controllers
                 Description = adModel.Description,
                 AdTypes = adModel.AdTypes,
                 UserId = userId,
-                PicturesCol = adModel.PicturesCol
+                PicturesCol = adModel.PicturesCol,
+                Active = true,
+                CreatedOn = DateTime.Now
             };
             _context.Advertisements.Add(advertisement);
             _context.SaveChanges();
@@ -83,6 +94,62 @@ namespace Advertisement.Controllers
             ViewBag.Id = id;
             ViewBag.Name = adName;
             return View();
+        }
+        public IActionResult UserAds()
+        {
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var con = _context.Advertisements;
+            var model = con.Select(x => new Advertisements
+            {
+                Id = x.Id,
+                UserId = x.UserId,
+                Active = x.Active,
+                AdTypes = x.AdTypes,
+                Title = x.Title,
+                Description = x.Description,
+                PicturesCol = x.PicturesCol,
+                CreatedOn = x.CreatedOn
+            }).Where(x=>x.UserId == userId).ToList();
+
+
+            ViewBag.UserId = userId;
+
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult ActiveAds(string id)
+        {
+            var model = _context.Advertisements.ToList();
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ViewBag.UserId = userId;
+            return PartialView("_activeAds", model);
+        }
+        public IActionResult DeactivatedAds(string id)
+        {
+            var model = _context.Advertisements.ToList();
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            ViewBag.UserId = userId;
+            return PartialView("_deactivatedAds");
+        }
+        public IActionResult DeleteAd(int id)
+        {
+            var ad = _context.Advertisements.Where(x => x.Id == id).FirstOrDefault();
+            _context.Advertisements.Remove(ad);
+            _context.SaveChanges();
+            return RedirectToAction(nameof(UserAds));
+        }
+
+        public IActionResult Deactivate(int id)
+        {
+            var ad = new Advertisements()
+            {
+                Id = id,
+                Active = false
+            };
+            //_context.Attach(ad);
+            _context.Entry(ad).Property(x => x.Active).IsModified = true;
+            _context.SaveChanges();
+            return RedirectToAction(nameof(UserAds));
         }
         bool fileValid(string fileName)
         {

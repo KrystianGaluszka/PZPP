@@ -20,12 +20,11 @@ namespace Advertisement.ViewModels
         public string Description { get; set; }
 
         [Display(Name = "Zdjęcia")]
-        [Required(ErrorMessage = "To pole musi być wypełnione")]
         public virtual ICollection<Pictures> PicturesCol { get; set; }
 
         [Display(Name = "Kategoria")]
         [Required(ErrorMessage = "To pole musi być wypełnione")]
         public AdType AdTypes { get; set; }
-
+        public DateTime CreatedOn { get; set; }
     }
 }

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Advertisement.Models.Advertisements>
+
+
+<script src="https://kit.fontawesome.com/8dd6c3ac84.js" crossorigin="anonymous"></script>
+<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />
+<link href="~/css/Advertise.css" rel="stylesheet" />
+<h3>ACTIVE</h3>
+@if (Model.Count() == 0)
+{
+    <caption>Nie masz żadnych ogłoszeń</caption>
+}
+else
+{
+    @foreach (var ad in Model)
+    {
+    var isActive = ad.Active ? "Aktywne" : "Nieaktywne";
+
+    <div class="card" style="width: 18rem;">
+    @if (ad.PicturesCol.Count != 0)
+    {
+        <div class="img-thumbnail">
+            <a style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })">
+                <img class="img-responsive"
+                        style="cursor:pointer;height:180px;width:100%"
+                        src="~/AdPictures/@ad.PicturesCol.FirstOrDefault().Name" />
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="img-thumbnail">
+            <a style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })">
+                <img class="img-responsive"
+                     style="cursor:pointer;height:180px;width:100%"
+                     src="~/Img/icons8-no-image-100.png" />
+            </a>
+        </div>
+    }
+        <div class="card-body">
+            <h5 class="card-title">@ad.Title</h5>
+            <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
+            <p class="card-text">Status: @isActive</p>
+            <a href="@Url.Action("Deactivate", "Advertisement", new { id = ad.Id })" class="btn btn-secondary">Dezaktywuj</a>
+        </div>
+    </div>
+    }
+}
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}

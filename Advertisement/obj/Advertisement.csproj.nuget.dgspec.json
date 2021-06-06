@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\BluE\\Desktop\\pzpp\\Advertisement\\Advertisement.csproj": {}
+    "C:\\Users\\Krystian\\Desktop\\GitSzymona\\Advertisement\\Advertisement.csproj": {}
   },
   "projects": {
-    "C:\\Users\\BluE\\Desktop\\pzpp\\Advertisement\\Advertisement.csproj": {
+    "C:\\Users\\Krystian\\Desktop\\GitSzymona\\Advertisement\\Advertisement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\BluE\\Desktop\\pzpp\\Advertisement\\Advertisement.csproj",
+        "projectUniqueName": "C:\\Users\\Krystian\\Desktop\\GitSzymona\\Advertisement\\Advertisement.csproj",
         "projectName": "Advertisement",
-        "projectPath": "C:\\Users\\BluE\\Desktop\\pzpp\\Advertisement\\Advertisement.csproj",
-        "packagesPath": "C:\\Users\\BluE\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\BluE\\Desktop\\pzpp\\Advertisement\\obj\\",
+        "projectPath": "C:\\Users\\Krystian\\Desktop\\GitSzymona\\Advertisement\\Advertisement.csproj",
+        "packagesPath": "C:\\Users\\Krystian\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Krystian\\Desktop\\GitSzymona\\Advertisement\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\BluE\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Krystian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -93,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -14,6 +14,8 @@ namespace Advertisement.Models
         public string Description { get; set; }
         public virtual ICollection<Pictures> PicturesCol { get; set; }
         public AdType AdTypes { get; set; }
+        public DateTime? CreatedOn { get; set; }
+        public bool Active { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
     }
     public class Pictures

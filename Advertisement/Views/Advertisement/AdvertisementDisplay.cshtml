@@ -16,6 +16,12 @@
 {
     if (adId == item.Id)
     {
+        if (item.PicturesCol == null)
+        {
+            <div class="text-center"></div>
+        }
+        else
+        {
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -47,7 +53,7 @@
                 <span class="sr-only">Next</span>
             </a>
         </div>
-
+        }
         <div>
             <h4 style="margin-top:2%">@Html.DisplayFor(modelItem => item.Title)<hr /></h4>
         </div>

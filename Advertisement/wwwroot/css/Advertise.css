@@ -2,34 +2,55 @@
     position: relative;
 }
 
-    .product-item .caption h5 {
-        font-weight: 600;
-        font-size: 16px;
-        line-height: 20px;
-        border-top: 2px solid #333;
-        margin-top: 10px;
-        padding-top: 10px;
-    }
+.product-item .caption h5 {
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    border-top: 2px solid #333;
+    margin-top: 10px;
+    padding-top: 10px;
+}
 
-    .product-item .caption .product-item-price {
-        font-size: 14px;
-        line-height: 16px;
-        font-weight: 400;
-    }
+.product-item .caption .product-item-price {
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+}
 
 
-    .product-item .product-item-badge {
-        position: absolute;
-        top: 4px;
-        left: 4px;
-        padding: 5px 12px 6px;
-        color: #fff;
-        font-size: 12px;
-        line-height: 14px;
-        font-weight: 600;
-        background: #333;
-        -webkit-border-radius: 4px 0 4px 0;
-        -moz-border-radius: 4px 0 4px 0;
-        -o-border-radius: 4px 0 4px 0;
-        border-radius: 4px 0 4px 0;
-    }
+.product-item .product-item-badge {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    padding: 5px 12px 6px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 14px;
+    font-weight: 600;
+    background: #333;
+    -webkit-border-radius: 4px 0 4px 0;
+    -moz-border-radius: 4px 0 4px 0;
+    -o-border-radius: 4px 0 4px 0;
+    border-radius: 4px 0 4px 0;
+}
+
+#active {
+    width: calc(50% - 3px);
+    margin: 0 auto;
+    display: inline-block;
+    font-size: 2.5vh;
+    padding: 15px 15px;
+}
+#deactivated {
+    width: calc(50% - 3px);
+    margin: 0 auto;
+    display: inline-block;
+    font-size: 2.5vh;
+    padding: 15px 15px;
+}
+
+#switchBtnDiv {
+    width: 100%;
+    margin: 0 auto;
+    margin-bottom:2%;
+}

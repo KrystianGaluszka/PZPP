@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Advertisement.Models.Advertisements>
+@{
+    var userAds = new List<Advertisements>();
+    if (Model != null) userAds = Model.Where(x => x.UserId == ViewBag.UserId).ToList();
+}
+<script src="https://kit.fontawesome.com/8dd6c3ac84.js" crossorigin="anonymous"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+@*<link href="~/lib/bootstrap/dist/css/bootstrap.css" rel="stylesheet" />*@
+<link href="~/css/Advertise.css" rel="stylesheet" />
+
+<div>
+    <ul class="nav nav-tabs" role="tablist">
+        <li role="presentation" class="active">
+            <a href="#first" aria-controls="first" role="tab" data-toggle="tab">Aktywne</a>
+        </li>
+        <li role="presentation">
+            <a href="#second" aria-controls="second" role="tab" data-toggle="tab">Nieaktywne</a>
+        </li>
+    </ul>
+
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="first">
+            <partial name="_activeAds" model="Model.Where(x=>x.Active == true)" />
+        </div>
+        <div role="tabpanel" class="tab-pane" id="second">
+            <partial name="_deactivatedAds" model="Model.Where(x=>x.Active == false)" />
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+}
