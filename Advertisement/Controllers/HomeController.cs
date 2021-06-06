@@ -2,6 +2,7 @@
 using Advertisement.Models;
 using Advertisement.ViewModels;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -22,21 +23,52 @@ namespace Advertisement.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+
+
+        public IActionResult Index(string SearchText = "")
         {
+            //if (SearchText != "" && SearchText != null)
+            //{
+            //    Title = _context.Advertisements.Where(x => x.Title.Contains(SearchText)).ToList();
+            //}
+
             var getData = _context.Advertisements;
-            var data = new HomeIndexViewModel
+            var searchedData = getData.Where(x => x.Title.ToLower().Contains(SearchText.ToLower()));
+
+            var data = new HomeIndexViewModel();
+            if (SearchText != "" && SearchText != null)
             {
-                AdvertiseList = getData.Select(x => new AdvertisementViewModel
+                data = new HomeIndexViewModel
                 {
-                    Title = x.Title,
-                    PicturesCol = x.PicturesCol,
-                    AdTypes = x.AdTypes,
-                    Description = x.Description,
-                    Id = x.Id  
-                })
-            };
-            return View(data);
+                    AdvertiseList = searchedData.Select(x => new AdvertisementViewModel
+                    {
+                        Title = x.Title,
+                        PicturesCol = x.PicturesCol,
+                        AdTypes = x.AdTypes,
+                        Description = x.Description,
+                        Id = x.Id
+                    })
+                };
+                
+                return View(data);
+            }
+            else
+            {
+                data = new HomeIndexViewModel
+                {
+                    AdvertiseList = getData.Select(x => new AdvertisementViewModel
+                    {
+                        Title = x.Title,
+                        PicturesCol = x.PicturesCol,
+                        AdTypes = x.AdTypes,
+                        Description = x.Description,
+                        Id = x.Id
+                    })
+                };
+                return View(data);
+            }
+            
+            
         }
 
         public IActionResult Privacy()
