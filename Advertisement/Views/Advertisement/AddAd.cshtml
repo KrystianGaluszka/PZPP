@@ -30,7 +30,7 @@
                 <p style="color:red">@TempData["imgMsg"]</p>
             </div>
 
-            <div class="form-group">
+            <div class="form-group mt-3">
                 <label asp-for="AdTypes" class="control-label"></label>
                 <select class="form-control" asp-for="AdTypes" asp-items="@Html.GetEnumSelectList<AdType>()">
                     <option value="">--Wybierz--</option>
@@ -38,7 +38,7 @@
                 <span asp-validation-for="AdTypes" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Dodaj" class="btn btn-lg btn-primary" data-confirm="Na pewno chcesz dodać ogłoszenie?" />
+                <input type="submit" value="Dodaj" class="btn btn-lg btn-outline-primary" style="border-radius:0" data-confirm="Na pewno chcesz dodać ogłoszenie?" />
             </div>
         </form>
     </div>
