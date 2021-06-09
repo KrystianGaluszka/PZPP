@@ -1,39 +1,67 @@
 ﻿@model IEnumerable<Advertisement.ViewModels.AdvertisementViewModel>
 @*@{
-    var list = ViewBag.List as IEnumerable<Advertisements>;
-}*@
+        var list = ViewBag.List as IEnumerable<Advertisements>;
+    }*@
 
 
 
 
 
+<body>
+    @*<div class="row product-container">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-3 mt-4 mb-1" style="margin-bottom:8px">
+                <div class="thumbnail product-item" style="height:300px">
+                    <a style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = item.Id, adName = item.Title })">
+                        @if (item.PicturesCol.Count == 0)
+                        {
+                            <img title="Click to View Product detail" class="imgThumb mt-5"
+                                 style="cursor:pointer;height:228px;width:99%"
+                                 src="~/Img/icons8-no-image-100.png" />
+                        }
+                        else
+                        {
+                            <img title="Click to View Product detail" class="imgThumb mt-5"
+                                 style="cursor: pointer; height: 228px; width: 99%"
+                                 src="~/AdPictures/@item.PicturesCol.FirstOrDefault().Name" />
+                        }
+                        <div class="caption">
+                            <h5>@item.Title</h5>
+                            <p>@item.AdTypes</p>
 
-<div class="row product-container">
-    @foreach (var item in Model)
-    {
-        <div class="col-md-3 mt-4 mb-1" style="margin-bottom:8px">
-            <div class="thumbnail product-item" style="height:300px">
-                <a  style="text-decoration:none;color:black" href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = item.Id, adName = item.Title })">
-                    @if (item.PicturesCol.Count == 0)
-                    {
-                    <img title="Click to View Product detail" class="imgThumb mt-5"
-                         style="cursor:pointer;height:228px;width:99%"
-                         src="~/Img/icons8-no-image-100.png" />
-                    }
-                    else
-                    {
-                    <img title="Click to View Product detail" class="imgThumb mt-5"
-                            style="cursor: pointer; height: 228px; width: 99%"
-                            src="~/AdPictures/@item.PicturesCol.FirstOrDefault().Name" />
-                    }
-                    <div class="caption">
-                        <h5>@item.Title</h5>
-                        <p>@item.AdTypes</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
 
-                    </div>
-                </a>
+        }
+    </div>*@
+    <div class="row product-container">
+        @foreach (var item in Model)
+        {
+        
+            
+        <div class="card" style="background-image: url(AdPictures/@item.PicturesCol.FirstOrDefault().Name)">
+            
+            <div class="card-content">
+                @*@if (item.PicturesCol.Count == 0)
+        {
+            <img title="Click to View Product detail"
+                 src="~/Img/icons8-no-image-100.png" />
+        }
+        else
+        {
+            <img title="Click to View Product detail"
+                 src="~/AdPictures/@item.PicturesCol.FirstOrDefault().Name" />
+        }*@
+
+                <h2 class="card-title"> @item.Title</h2>
+                <p class="card-body"></p>
+                <a href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = item.Id, adName = item.Title })" class="button">Learn More</a>
             </div>
         </div>
+        }
 
-    }
-</div>
+    </div>
+</body>
