@@ -50,7 +50,7 @@ namespace Advertisement.Controllers
                 var advertisement = _context.Advertisements.FirstOrDefault(x => x.Id == model.Id);
                 if (advertisement == null)
                 {
-                    return View(model);
+                    return View();
                 }
                 else
                 {
@@ -59,7 +59,7 @@ namespace Advertisement.Controllers
                     advertisement.Title = model.Title;
                     advertisement.AdTypes = model.AdTypes;
                     var result = _context.Update(advertisement);
-                return RedirectToAction("UserAds");
+                    return RedirectToAction("UserAds");
                 }
         }
         [Authorize]
