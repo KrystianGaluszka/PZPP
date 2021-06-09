@@ -17,7 +17,6 @@ namespace Advertisement.Controllers
     
     public class AdvertisementController : Controller
     {
-        private List<Advertisements> _advertisements;
         private readonly ApplicationDbContext _context;
         private IWebHostEnvironment _env;
         private string _dir;
@@ -31,27 +30,39 @@ namespace Advertisement.Controllers
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
-            _advertisements = new List<Advertisements>();
         }
         [HttpGet]
         public IActionResult EditAdvertisement(int id)
         {
-            var advertisements = _advertisements.FirstOrDefault(x => x.Id == id);
+            var advertisements = _context.Advertisements.FirstOrDefault(x => x.Id == id);
             EditAdViewModel editAdViewModel = new EditAdViewModel
             {
                 Id = advertisements.Id,
                 Title = advertisements.Title,
                 Description = advertisements.Description,
-                AdTypes = advertisements.AdTypes,
+                AdTypes = advertisements.AdTypes
             };
             return View(editAdViewModel);
         }
         [HttpPost]
-        public IActionResult EditAdvertisement(EditAdViewModel editAdViewModel)
+        public IActionResult EditAdvertisement(EditAdViewModel model)
         {
+            if (ModelState.IsValid)
+            {
+                //var advertisement = _context.Advertisements.FirstOrDefault(x => x.Id = model.Id);
+                var editedmodel = new EditAdViewModel
+                {
+                    Id = model.Id,
+                    Description = model.Description,
+                    Title = model.Title,
+                    AdTypes = model.AdTypes
+                };
+                return View(editedmodel);
+            }
             return View();
+            
         }
-            [Authorize]
+        [Authorize]
         [HttpGet]
         public IActionResult AddAd()
         {

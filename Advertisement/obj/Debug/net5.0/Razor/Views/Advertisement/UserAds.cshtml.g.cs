@@ -21,13 +21,20 @@ using Advertisement;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\tuxedo\Desktop\Nowy folder (2)\Advertisement\Views\_ViewImports.cshtml"
+using Advertisement.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\tuxedo\Desktop\Nowy folder (2)\Advertisement\Views\_ViewImports.cshtml"
 using Advertisement.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"0011bc67119817bc8a2c651edef578fc9b3e9566", @"/Views/Advertisement/UserAds.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2baa5834daaf549a9b6666660619d89cb1165eba", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9d24c929b29ec889106e731508cfc30ae49ed416", @"/Views/_ViewImports.cshtml")]
     public class Views_Advertisement_UserAds : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Advertisement.Models.Advertisements>>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("href", new global::Microsoft.AspNetCore.Html.HtmlString("~/css/Advertise.css"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -69,7 +76,7 @@ using Advertisement.Models;
 #line hidden
 #nullable disable
             WriteLiteral("<script src=\"https://kit.fontawesome.com/8dd6c3ac84.js\" crossorigin=\"anonymous\"></script>\r\n<script src=\"https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js\"></script>\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0011bc67119817bc8a2c651edef578fc9b3e95665129", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("link", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0011bc67119817bc8a2c651edef578fc9b3e95665322", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -98,7 +105,7 @@ using Advertisement.Models;
     <div class=""tab-content"">
         <div role=""tabpanel"" class=""tab-pane active"" id=""first"">
             ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0011bc67119817bc8a2c651edef578fc9b3e95666863", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0011bc67119817bc8a2c651edef578fc9b3e95667056", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();
@@ -121,7 +128,7 @@ __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper.Model = Model.Where(x=>x.
             Write(__tagHelperExecutionContext.Output);
             __tagHelperExecutionContext = __tagHelperScopeManager.End();
             WriteLiteral("\r\n        </div>\r\n        <div role=\"tabpanel\" class=\"tab-pane\" id=\"second\">\r\n            ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0011bc67119817bc8a2c651edef578fc9b3e95668564", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("partial", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.SelfClosing, "0011bc67119817bc8a2c651edef578fc9b3e95668757", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_TagHelpers_PartialTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.TagHelpers.PartialTagHelper>();

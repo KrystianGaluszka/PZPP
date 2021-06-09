@@ -21,13 +21,20 @@ using Advertisement;
 #nullable disable
 #nullable restore
 #line 2 "C:\Users\tuxedo\Desktop\Nowy folder (2)\Advertisement\Views\_ViewImports.cshtml"
+using Advertisement.ViewModels;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 3 "C:\Users\tuxedo\Desktop\Nowy folder (2)\Advertisement\Views\_ViewImports.cshtml"
 using Advertisement.Models;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"287f1b53181eead4f9120d118cd0e6f00bf82e15", @"/Views/Home/PartialAdvertiseList.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2baa5834daaf549a9b6666660619d89cb1165eba", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"9d24c929b29ec889106e731508cfc30ae49ed416", @"/Views/_ViewImports.cshtml")]
     public class Views_Home_PartialAdvertiseList : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<IEnumerable<Advertisement.ViewModels.AdvertisementViewModel>>
     {
         #line hidden
@@ -55,7 +62,7 @@ using Advertisement.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n\r\n\r\n\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "287f1b53181eead4f9120d118cd0e6f00bf82e153219", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "287f1b53181eead4f9120d118cd0e6f00bf82e153412", async() => {
                 WriteLiteral("\r\n");
                 WriteLiteral("    <div class=\"row product-container\">\r\n");
 #nullable restore
