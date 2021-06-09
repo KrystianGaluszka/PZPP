@@ -47,20 +47,20 @@ namespace Advertisement.Controllers
         [HttpPost]
         public IActionResult EditAdvertisement(EditAdViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                //var advertisement = _context.Advertisements.FirstOrDefault(x => x.Id = model.Id);
-                var editedmodel = new EditAdViewModel
+                var advertisement = _context.Advertisements.FirstOrDefault(x => x.Id == model.Id);
+                if (advertisement == null)
                 {
-                    Id = model.Id,
-                    Description = model.Description,
-                    Title = model.Title,
-                    AdTypes = model.AdTypes
-                };
-                return View(editedmodel);
-            }
-            return View();
-            
+                    return View(model);
+                }
+                else
+                {
+                    advertisement.Id = model.Id;
+                    advertisement.Description = model.Description;
+                    advertisement.Title = model.Title;
+                    advertisement.AdTypes = model.AdTypes;
+                    var result = _context.Update(advertisement);
+                return RedirectToAction("UserAds");
+                }
         }
         [Authorize]
         [HttpGet]
