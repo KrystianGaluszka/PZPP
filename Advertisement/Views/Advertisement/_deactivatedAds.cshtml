@@ -11,42 +11,22 @@
 }
 else
 {
-<div class="card-deck">
-    @foreach (var ad in Model)
-    {
-        var isActive = ad.Active ? "Aktywne" : "Nieaktywne";
-        @if (ad.PicturesCol.Count != 0)
+    <div class="row product-container">
+        @foreach (var ad in Model)
         {
-            <div class="card m-3" style="min-width:18rem; max-width:30.5%;">
-                <div class="card-header"><h4>@ad.Title</h4></div>
-                <img class="card-img-top imgThumb" asp-append-version="true" src="~/AdPictures/@ad.PicturesCol.FirstOrDefault().Name" />
-                <div class="card-footer">
-                    <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
-                    <p class="card-text text-danger">Status: @isActive</p>
-                    <a class="btn btn-info" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })"><i class="far fa-eye"></i></a>
-                    <a asp-action="DeleteAd" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                    <a asp-action="Activate" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-success"><i class="fas fa-check"></i></a>
-                </div>
-            </div>
-        }
-        else
-        {
-            <div class="card m-3" style="min-width:18rem; max-width:30.5%;">
-                <div class="card-header"><h4>@ad.Title</h4></div>
-                <img class="card-img-top imgThumb" asp-append-version="true" src="~/Img/icons8-no-image-100.png" />
-                <div class="card-footer">
-                    <p class="card-text">@ad.CreatedOn.Value.ToShortDateString()</p>
-                    <p class="card-text text-danger">Status: @isActive</p>
-                    <a class="btn btn-info" style="text-decoration:none" href="@Url.Action("AdvertisementDisplay", "Advertisement", new { id = ad.Id, adName = ad.Title })"><i class="far fa-eye"></i></a>
-                    <a asp-action="DeleteAd" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
-                    <a asp-action="Activate" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-success"><i class="fas fa-check"></i></a>
-                </div>
-            </div>
-        }
-    }
-</div>
+            var isActive = ad.Active ? "Aktywne" : "Nieaktywne";
+                        <div class="card" style="background-image: url(/AdPictures/@ad.PicturesCol.FirstOrDefault().Name)">
+                            <div class="card-content">
+                                <h2 class="card-title"> @ad.Title</h2>
+                                <p class="card-body"></p>
+                                <a href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = ad.Id, adName = ad.Title })" class="btn btn-info"><i class="far fa-eye"></i></a>
+                                <a asp-action="DeleteAd" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-danger"><i class="fas fa-trash"></i></a>
+                                <a asp-action="Activate" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-success"><i class="fas fa-check"></i></a>
+                            </div>
+                        </div>
+         }
+    </div>
 }
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-
 }

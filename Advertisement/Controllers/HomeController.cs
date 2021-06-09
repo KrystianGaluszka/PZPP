@@ -40,7 +40,7 @@ namespace Advertisement.Controllers
             {
                 data = new HomeIndexViewModel
                 {
-                    AdvertiseList = searchedData.Select(x => new AdvertisementViewModel
+                    AdvertiseList = searchedData.Where(x => x.Active == true).Select(x => new AdvertisementViewModel
                     {
                         Title = x.Title,
                         PicturesCol = x.PicturesCol,
@@ -56,7 +56,7 @@ namespace Advertisement.Controllers
             {
                 data = new HomeIndexViewModel
                 {
-                    AdvertiseList = getData.Select(x => new AdvertisementViewModel
+                    AdvertiseList = getData.Where(x => x.Active == true).Select(x => new AdvertisementViewModel
                     {
                         Title = x.Title,
                         PicturesCol = x.PicturesCol,
