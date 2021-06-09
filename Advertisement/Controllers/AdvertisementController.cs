@@ -17,7 +17,7 @@ namespace Advertisement.Controllers
     
     public class AdvertisementController : Controller
     {
-        List<Advertisements> _advertisements;
+        private List<Advertisements> _advertisements;
         private readonly ApplicationDbContext _context;
         private IWebHostEnvironment _env;
         private string _dir;
@@ -26,24 +26,25 @@ namespace Advertisement.Controllers
 
         public AdvertisementController(IWebHostEnvironment environment, ApplicationDbContext context, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager)
         {
-            this._env = environment;
+            _env = environment;
             _dir = _env.WebRootPath;
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
+            _advertisements = new List<Advertisements>();
         }
         [HttpGet]
         public IActionResult EditAdvertisement(int id)
         {
-            Advertisements advertisements = _advertisements.FirstOrDefault(x => x.Id == id);
-            AdvertisementViewModel advertisementViewModel = new AdvertisementViewModel
+            var advertisements = _advertisements.FirstOrDefault(x => x.Id == id);
+            EditAdViewModel editAdViewModel = new EditAdViewModel
             {
                 Id = advertisements.Id,
                 Title = advertisements.Title,
                 Description = advertisements.Description,
                 AdTypes = advertisements.AdTypes,
             };
-            return View(advertisementViewModel);
+            return View(editAdViewModel);
         }
         [HttpPost]
         public IActionResult EditAdvertisement(EditAdViewModel editAdViewModel)

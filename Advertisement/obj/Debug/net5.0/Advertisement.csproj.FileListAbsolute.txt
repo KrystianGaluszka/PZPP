@@ -1381,3 +1381,4 @@ C:\Users\tuxedo\Desktop\Nowy folder (2)\Advertisement\obj\Debug\net5.0\Advertise
 C:\Users\tuxedo\Desktop\Nowy folder (2)\Advertisement\obj\Debug\net5.0\ref\Advertisement.dll
 C:\Users\tuxedo\Desktop\Nowy folder (2)\Advertisement\obj\Debug\net5.0\Advertisement.pdb
 C:\Users\tuxedo\Desktop\Nowy folder (2)\Advertisement\obj\Debug\net5.0\Advertisement.genruntimeconfig.cache
+C:\Users\tuxedo\Desktop\Nowy folder (2)\Advertisement\obj\Debug\net5.0\Razor\Views\Advertisement\EditAdvertisement.cshtml.g.cs

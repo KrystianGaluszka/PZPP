@@ -22,6 +22,7 @@ else
                 <p class="card-body"></p>
                 <a href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = ad.Id, adName = ad.Title })" class="btn btn-info"><i class="far fa-eye"></i></a>
                 <a asp-action="Deactivate" asp-controller="Advertisement" asp-route-id="@ad.Id" class="btn btn-secondary"><i class="fas fa-ban"></i></a>
+                <a asp-action="EditAdvertisement" asp-controller="Advertisement" asp-route-id="@ad.Id">Edit</a>
             </div>
         </div>
         }
