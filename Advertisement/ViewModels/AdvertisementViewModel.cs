@@ -12,7 +12,7 @@ namespace Advertisement.ViewModels
 
         public int Id { get; set; }
         [Display(Name = "Tytuł")]
-        [StringLength(25,ErrorMessage ="Za długi tytuł")]
+        [StringLength(45,ErrorMessage ="Tytuł Minimalnie musi mieć 23 znaki",MinimumLength = 23)]
         [Required(ErrorMessage = "To pole musi być wypełnione")]
         public string Title { get; set; }
 

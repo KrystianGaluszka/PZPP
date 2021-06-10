@@ -136,7 +136,7 @@ body {
 .card-title {
     position: relative;
     padding: 7.5px;
-    font-size: 25px;
+    font-size: 23px;
     
 }
 
@@ -162,5 +162,8 @@ body {
 
     .button:hover,
     .button:focus {
-        background-color: var(--clr-neutral-100);
+        color:white;
+        text-decoration:none;
+        
     }
+

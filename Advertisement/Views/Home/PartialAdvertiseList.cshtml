@@ -35,26 +35,17 @@
 
         }
     </div>*@
+    
     <div class="row product-container">
         @foreach (var item in Model)
-        {    
+        {
+            var subtitle = item.Title.Length > 42 ? $"{item.Title.Substring(0, 42)}..." : item.Title;
         <div class="card" style="background-image: url(AdPictures/@item.PicturesCol.FirstOrDefault().Name)">
             
             <div class="card-content">
-                @*@if (item.PicturesCol.Count == 0)
-        {
-            <img title="Click to View Product detail"
-                 src="~/Img/icons8-no-image-100.png" />
-        }
-        else
-        {
-            <img title="Click to View Product detail"
-                 src="~/AdPictures/@item.PicturesCol.FirstOrDefault().Name" />
-        }*@
-
-                <h2 class="card-title"> @item.Title</h2>
+                <h2 class="card-title"> @subtitle </h2>
                 <p class="card-body"></p>
-                <a href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = item.Id, adName = item.Title })" class="button">Learn More</a>
+                <a href="@Url.Action("AdvertisementDisplay","Advertisement", new { id = item.Id, adName = item.Title })" class="button" id="szczegoly">Szczegóły</a>
                 <a href="#" style="color:gray;text-decoration:none;" ><i class="fas fa-eye" ></i> @item.Views</a>
             </div>
         </div>
