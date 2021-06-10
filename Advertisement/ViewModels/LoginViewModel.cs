@@ -12,6 +12,7 @@ namespace Advertisement.ViewModels
         [DataType(DataType.Text)]
         public string Login { get; set; }
         [Required]
+        [Display(Name = "Hasło")]
         [DataType(DataType.Password)]
         public string Password { get; set; }
         [Display(Name = "Zapamiętaj mnie")]

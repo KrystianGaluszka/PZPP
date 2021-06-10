@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XDcBCRsjcdGHPA8O0AcjOuk6HHgKPFqLlshhLGYRkv9R4LmBZKTxyOS4QVVUctqmHE/C296Isbpy52bXgczIng==",
+  "dgSpecHash": "ToEXq8PoyCo25gf9dNcS9VQ1M/vn4UScJAOVE3y7wrTQh9d6D5b5qzu50JHY2LEJk9HEM8QnYNLY6J+yEQ6I+w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Shaddar\\Desktop\\kotletSchabowy\\ProjectTest\\ProjectTest.csproj",
+  "projectFilePath": "C:\\Users\\Shaddar\\Desktop\\Ostatniraz2\\ProjectTest\\ProjectTest.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Shaddar\\.nuget\\packages\\fluentvalidation\\10.2.1\\fluentvalidation.10.2.1.nupkg.sha512",
     "C:\\Users\\Shaddar\\.nuget\\packages\\humanizer.core\\2.2.0\\humanizer.core.2.2.0.nupkg.sha512",

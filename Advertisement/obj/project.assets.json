@@ -7712,11 +7712,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Shaddar\\Desktop\\kotletSchabowy\\Advertisement\\Advertisement.csproj",
+      "projectUniqueName": "C:\\Users\\Shaddar\\Desktop\\Ostatniraz2\\Advertisement\\Advertisement.csproj",
       "projectName": "Advertisement",
-      "projectPath": "C:\\Users\\Shaddar\\Desktop\\kotletSchabowy\\Advertisement\\Advertisement.csproj",
+      "projectPath": "C:\\Users\\Shaddar\\Desktop\\Ostatniraz2\\Advertisement\\Advertisement.csproj",
       "packagesPath": "C:\\Users\\Shaddar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Shaddar\\Desktop\\kotletSchabowy\\Advertisement\\obj\\",
+      "outputPath": "C:\\Users\\Shaddar\\Desktop\\Ostatniraz2\\Advertisement\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
