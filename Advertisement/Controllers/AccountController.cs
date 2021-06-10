@@ -45,7 +45,7 @@ namespace Advertisement.Controllers
                 if (result.Succeeded)
                 {
                     await _signInManager.SignInAsync(user, isPersistent: false);
-                    return RedirectToAction("Login", "Account");
+                    return RedirectToAction("Index", "Home");
                 }
 
                 foreach (var error in result.Errors)

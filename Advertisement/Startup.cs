@@ -37,6 +37,7 @@ namespace Advertisement
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.Configure<IdentityOptions>(o => o.User.AllowedUserNameCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789");
+            services.ConfigureApplicationCookie(o => { o.LoginPath = "/account/login"; });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -16,6 +16,7 @@ namespace Advertisement.Models
         public AdType AdTypes { get; set; }
         public DateTime? CreatedOn { get; set; }
         public bool Active { get; set; }
+        public int Views { get; set; }
         public virtual ApplicationUser ApplicationUser { get; set; }
     }
     public class Pictures

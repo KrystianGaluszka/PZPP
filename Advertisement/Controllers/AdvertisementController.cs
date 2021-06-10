@@ -58,8 +58,8 @@ namespace Advertisement.Controllers
                     advertisement.Description = model.Description;
                     advertisement.Title = model.Title;
                     advertisement.AdTypes = model.AdTypes;
-                    var result = _context.Update(advertisement);
-                    return RedirectToAction("UserAds");
+                    _context.SaveChanges();
+                return RedirectToAction("UserAds");
                 }
         }
         [Authorize]
@@ -113,7 +113,8 @@ namespace Advertisement.Controllers
                 UserId = userId,
                 PicturesCol = adModel.PicturesCol,
                 Active = true,
-                CreatedOn = DateTime.Now
+                CreatedOn = DateTime.Now,
+                Views = 0
             };
             _context.Advertisements.Add(advertisement);
             _context.SaveChanges();
@@ -122,6 +123,17 @@ namespace Advertisement.Controllers
         }
         public IActionResult AdvertisementDisplay(int id, string adName)
         {
+            //licznik wyświetleń
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            if (Url.Action("UserAds", "Advertisement", null, Request.Scheme) != Request.Headers["Referer"] || Request.Headers["Referer"] != Url.Action("AddAd", "Advertisement", null, Request.Scheme))
+            {
+                if (userId != _context.Advertisements.Where(x => x.Id == id).FirstOrDefault().UserId)
+                {
+                    _context.Advertisements.Where(x => x.Id == id).FirstOrDefault().Views += 1;
+                    _context.SaveChanges();
+                }
+            }
+
             var adList = _context.Advertisements.ToList();
             var picList = _context.Pictures.ToList();
             ViewBag.PicList = picList;

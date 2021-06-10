@@ -8888,25 +8888,25 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tuxedo\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\": {}
+    "C:\\Users\\Krystian\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\tuxedo\\Desktop\\Nowy folder (2)\\ProjectTest\\ProjectTest.csproj",
+      "projectUniqueName": "C:\\Users\\Krystian\\Desktop\\PZPP-Projekt\\ProjectTest\\ProjectTest.csproj",
       "projectName": "ProjectTest",
-      "projectPath": "C:\\Users\\tuxedo\\Desktop\\Nowy folder (2)\\ProjectTest\\ProjectTest.csproj",
-      "packagesPath": "C:\\Users\\tuxedo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tuxedo\\Desktop\\Nowy folder (2)\\ProjectTest\\obj\\",
+      "projectPath": "C:\\Users\\Krystian\\Desktop\\PZPP-Projekt\\ProjectTest\\ProjectTest.csproj",
+      "packagesPath": "C:\\Users\\Krystian\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Krystian\\Desktop\\PZPP-Projekt\\ProjectTest\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\tuxedo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        "C:\\Users\\Krystian\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
@@ -8919,8 +8919,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "C:\\Users\\tuxedo\\Desktop\\Nowy folder (2)\\Advertisement\\Advertisement.csproj": {
-              "projectPath": "C:\\Users\\tuxedo\\Desktop\\Nowy folder (2)\\Advertisement\\Advertisement.csproj"
+            "C:\\Users\\Krystian\\Desktop\\PZPP-Projekt\\Advertisement\\Advertisement.csproj": {
+              "projectPath": "C:\\Users\\Krystian\\Desktop\\PZPP-Projekt\\Advertisement\\Advertisement.csproj"
             }
           }
         }
