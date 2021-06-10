@@ -46,7 +46,8 @@ namespace Advertisement.Controllers
                         PicturesCol = x.PicturesCol,
                         AdTypes = x.AdTypes,
                         Description = x.Description,
-                        Id = x.Id
+                        Id = x.Id,
+                        Views = x.Views
                     })
                 };
                 
@@ -62,7 +63,8 @@ namespace Advertisement.Controllers
                         PicturesCol = x.PicturesCol,
                         AdTypes = x.AdTypes,
                         Description = x.Description,
-                        Id = x.Id
+                        Id = x.Id,
+                        Views = x.Views
                     })
                 };
                 return View(data);

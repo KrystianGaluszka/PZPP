@@ -1,18 +1,21 @@
 ﻿#navuser{
     background-color:grey;
+    color:red;
 }
 .nav-link{
     color:white;
 }
+.nav-link:hover{
+    color:black;
+}
 .nav-link .active{
     color:black;
 }
-/*a :hover{
-    color:white;
-}
-a .active :hover{
+.nav-link .active:hover{
     color:black;
-}*/
+    text-decoration:none;
+}
+
 .product-item {
     position: relative;
 }

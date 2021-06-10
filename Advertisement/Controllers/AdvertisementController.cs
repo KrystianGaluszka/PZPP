@@ -72,10 +72,6 @@ namespace Advertisement.Controllers
         [HttpPost]
         public IActionResult AddAd(AdvertisementViewModel adModel)
         {
-            if(!(_signInManager.IsSignedIn(User)))
-            {
-                return RedirectToAction("Login", "Account", new {id = "niezalogowany"});
-            }
             var pictures = new Pictures();
             var files = HttpContext.Request.Form.Files;
             if(files.Count != 0 || files != null)
@@ -156,7 +152,8 @@ namespace Advertisement.Controllers
                 Title = x.Title,
                 Description = x.Description,
                 PicturesCol = x.PicturesCol,
-                CreatedOn = x.CreatedOn
+                CreatedOn = x.CreatedOn,
+                Views = x.Views
             }).Where(x=>x.UserId == userId).ToList();
 
 

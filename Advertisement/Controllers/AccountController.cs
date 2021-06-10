@@ -58,9 +58,9 @@ namespace Advertisement.Controllers
         }
         [HttpGet]
         [AllowAnonymous]
-        public IActionResult Login(string id)
+        public IActionResult Login(string returnUrl)
         {
-            if(id == "niezalogowany")
+            if(returnUrl != null)
             {
                 ViewBag.Message = "Aby to zrobić musisz być zalogowanym!";
             }

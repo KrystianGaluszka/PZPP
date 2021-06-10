@@ -26,6 +26,8 @@ namespace Advertisement.ViewModels
         [Display(Name = "Kategoria")]
         [Required(ErrorMessage = "To pole musi być wypełnione")]
         public AdType AdTypes { get; set; }
+
+        public int Views { get; set; }
         public DateTime CreatedOn { get; set; }
         
     }
