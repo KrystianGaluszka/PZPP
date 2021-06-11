@@ -3,11 +3,11 @@
 @{
     ViewData["Title"] = "AddAd";
 }
-<link href="~/css/Style.css" rel="stylesheet" />
+
 <script src="http://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="http://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
-
-<h4>Dodaj nowe ogłoszenie</h4>
+<link href="~/css/EditAdd.css" rel="stylesheet" />
+<h1>Dodaj nowe ogłoszenie</h1>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -38,7 +38,7 @@
                 <span asp-validation-for="AdTypes" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Dodaj" class="btn btn-lg btn-outline-primary" style="border-radius:0" data-confirm="Na pewno chcesz dodać ogłoszenie?" />
+                <input type="submit" value="Dodaj" id="myButton" class="btn btn-lg btn-outline-primary" style="border-radius:0" data-confirm="Na pewno chcesz dodać ogłoszenie?" />
             </div>
         </form>
     </div>
