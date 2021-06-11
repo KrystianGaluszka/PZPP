@@ -1,20 +1,24 @@
-﻿#navuser{
-    background-color:grey;
-    color:red;
+﻿#navuser {
+    background-color: grey;
+    color: red;
 }
-.nav-link{
-    color:white;
+
+.nav-link {
+    color: white;
 }
-.nav-link:hover{
-    color:black;
-}
-.nav-link .active{
-    color:black;
-}
-.nav-link .active:hover{
-    color:black;
-    text-decoration:none;
-}
+
+    .nav-link:hover {
+        color: black;
+    }
+
+    .nav-link .active {
+        color: black;
+    }
+
+        .nav-link .active:hover {
+            color: black;
+            text-decoration: none;
+        }
 
 .product-item {
     position: relative;
@@ -81,7 +85,10 @@
 :root {
     --clr-neutral-900: hsl(207,19%,9%);
     --clr-neutral-100: hsl(0 0% 100%);
-    --clr-accent-400: hsl(142,90%,61%)
+    --clr-accent-400: hsl(142,90%,61%);
+    --clr-primary: #ee6352;
+    --clr-body: 333;
+    --clr-bg: ddd;
 }
 
 body {
@@ -90,9 +97,9 @@ body {
 
 .card {
     color: var(--clr-neutral-100);
-    height:400px;
-    width:450px;
-    background-position:center;
+    height: 400px;
+    width: 450px;
+    background-position: center;
     background-size: cover;
     padding: 10rem 0 0;
     max-width: 40.5ch;
@@ -109,22 +116,22 @@ body {
     background: linear-gradient( hsl(0 0% 0% / 0), hsl(20 0% 0% / 0.3)10%, hsl(0 0% 0% / 1) );
     transform: translateY(30%);
     transition: transform 500ms ease;
-    padding-bottom:90px;
-    margin-bottom:0px;
+    padding-bottom: 90px;
+    margin-bottom: 0px;
 }
 
 .card:hover,
-.card:focus-within{
-    transform:scaleX(1);
+.card:focus-within {
+    transform: scaleX(1);
 }
 
-    .card-content > *:not(.card-title) {
-        opacity: 0;
-        transition: opacity 500ms linear;
-    }
+.card-content > *:not(.card-title) {
+    opacity: 0;
+    transition: opacity 500ms linear;
+}
 
 .card:hover .card-content,
-.card:focus-within .card-content{
+.card:focus-within .card-content {
     transform: translateY(0);
 }
 
@@ -137,7 +144,6 @@ body {
     position: relative;
     padding: 7.5px;
     font-size: 23px;
-    
 }
 
     .card-title::after {
@@ -150,7 +156,7 @@ body {
         background: var(--clr-accent-400);
     }
 
-.button {
+.buttonek {
     cursor: pointer;
     display: inline;
     text-decoration: none;
@@ -160,10 +166,86 @@ body {
     border-radius: 0.25em;
 }
 
-    .button:hover,
-    .button:focus {
-        color:white;
-        text-decoration:none;
-        
+    .buttonek:hover,
+    .buttonek:focus {
+        color: white;
+        text-decoration: none;
+    }
+.content {
+    background: white;
+    width: 35vw;
+    border-radius: 100vh;
+    box-shadow: 0 0 3em rgba(0, 0, 0, 0.15);
+    position: relative;
+    display:block;
+    margin:0 auto;
+
+}
+
+.search {
+    --size: 60px;
+    border: 2px solid var(--clr-accent-400);
+    display: flex;
+    border-radius: 100px;
+    overflow: hidden;
+    font-size: 1.25em;
+    position: relative;
+    width: var(--size);
+    height: var(--size);
+    transition: width 450ms cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    padding: 3px;
+}
+
+.search__input {
+    border: 0;
+    padding: 0.25em 1em;
+    flex-grow: 1;
+    outline: 0;
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.search__submit {
+    font-size: 1.5rem;
+    margin-left: auto;
+    background: 0;
+    border: 0;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background 200ms ease-out;
+    width: calc(var(--size) - 10px);
+    height: calc(var(--size) - 10px);
+    color: var(--clr-body);
+}
+
+.search:focus-within {
+    width: 100%;
+}
+
+    .search:focus-within .search__input {
+        opacity: 1;
+        z-index: initial;
+        cursor: initial;
+        width: calc(100% - var(--size));
     }
 
+    .search:focus-within .search__submit {
+        background: var(--clr-accent-400);
+        color: white;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    }
+
+        .search:focus-within .search__submit:hover, .search:focus-within .search__submit:focus {
+            outline: 0;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.65);
+        }
+form{
+    display:contents;
+}
