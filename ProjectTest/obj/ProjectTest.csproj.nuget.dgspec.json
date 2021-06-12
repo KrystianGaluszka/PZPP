@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\ProjectTest\\ProjectTest.csproj": {}
+    "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\ProjectTest\\ProjectTest.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\Advertisement\\Advertisement.csproj": {
+    "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\Advertisement\\Advertisement.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\Advertisement\\Advertisement.csproj",
+        "projectUniqueName": "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\Advertisement\\Advertisement.csproj",
         "projectName": "Advertisement",
-        "projectPath": "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\Advertisement\\Advertisement.csproj",
-        "packagesPath": "C:\\Users\\Shaddar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\Advertisement\\obj\\",
+        "projectPath": "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\Advertisement\\Advertisement.csproj",
+        "packagesPath": "C:\\Users\\Daria\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\Advertisement\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Shaddar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Daria\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -97,25 +93,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\ProjectTest\\ProjectTest.csproj": {
+    "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\ProjectTest\\ProjectTest.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\ProjectTest\\ProjectTest.csproj",
+        "projectUniqueName": "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\ProjectTest\\ProjectTest.csproj",
         "projectName": "ProjectTest",
-        "projectPath": "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\ProjectTest\\ProjectTest.csproj",
-        "packagesPath": "C:\\Users\\Shaddar\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\ProjectTest\\obj\\",
+        "projectPath": "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\ProjectTest\\ProjectTest.csproj",
+        "packagesPath": "C:\\Users\\Daria\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\ProjectTest\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Shaddar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\Daria\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -129,8 +121,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\Advertisement\\Advertisement.csproj": {
-                "projectPath": "C:\\Users\\Shaddar\\Desktop\\New folder (19)\\Advertisement\\Advertisement.csproj"
+              "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\Advertisement\\Advertisement.csproj": {
+                "projectPath": "C:\\Users\\Daria\\Source\\Repos\\KrystianGaluszka\\PZPP\\Advertisement\\Advertisement.csproj"
               }
             }
           }
@@ -169,11 +161,14 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
