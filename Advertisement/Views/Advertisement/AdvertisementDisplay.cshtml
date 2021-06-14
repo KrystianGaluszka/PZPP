@@ -8,76 +8,80 @@
     var adList = ViewBag.List as List<Advertisements>;
     var picList = ViewBag.PicList as List<Pictures>;
 }
+
 <link href="~/css/displayAd.css" rel="stylesheet" />
 <link href="~/lib/lightgallery/css/lightgallery.css" rel="stylesheet" />
 <link href="~/lib/lightSlider/css/lightslider.css" rel="stylesheet" />
 
-@foreach (var item in adList)
-{
-    if (adId == item.Id)
+
+<body style="        background-color: #13171B;">
+
+    @foreach (var item in adList)
     {
-        if (item.PicturesCol == null)
+        if (adId == item.Id)
         {
-            <div class="text-center"></div>
-        }
-        else
-        {
-        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-            <ol class="carousel-indicators">
-                <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                @for (int i = 1; i < item.PicturesCol.Count; i++)
-                {
-                    <li data-target="#carouselExampleIndicators" data-slide-to=i></li>
-                }
-            </ol>
-            <div class="carousel-inner">
-                @foreach (var img in picList)
-                {
-                    if (img.AdvertisementId == adId)
-                    {
-                        var path = $"~/AdPictures/{img.Name}";
-                        <div class="carousel-item @(first ? Html.Raw("active") : Html.Raw(""))">
-                            <img class="d-block w-100" id="image" src=@Url.Content(path)>
-                        </div>
-                        first = false;
-                    }
-                    else continue;
-                }
+            if (item.PicturesCol == null)
+            {
+                <div class="text-center"></div>
+            }
+            else
+            {
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        @for (int i = 1; i < item.PicturesCol.Count; i++)
+                        {
+                            <li data-target="#carouselExampleIndicators" data-slide-to=i></li>
+                        }
+                    </ol>
+                    <div class="carousel-inner">
+                        @foreach (var img in picList)
+                        {
+                            if (img.AdvertisementId == adId)
+                            {
+                                var path = $"~/AdPictures/{img.Name}";
+                                <div class="carousel-item @(first ? Html.Raw("active") : Html.Raw(""))">
+                                    <img class="d-block w-100" id="image" src=@Url.Content(path)>
+                                </div>
+                                first = false;
+                            }
+                            else continue;
+                        }
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            }
+            <div>
+                <h4 style="margin-top:2%; color:white;">@Html.DisplayFor(modelItem => item.Title)</h4>
             </div>
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+
+            <dl>
+                <dt class="col-sm-2" style="color:white;">
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd class="col-sm-10"style="color:white;">
+                    <div style="max-width:800px">@Html.DisplayFor(modelItem => item.Description)</div>
+                    <hr />
+                </dd>
+                <dt class="col-sm-2" style="color:white;">
+                    @Html.DisplayNameFor(model => model.AdTypes)
+                </dt>
+                <dd class="col-sm-10" style="color:white">
+                    @Html.DisplayFor(modelItem => item.AdTypes)
+                </dd>
+            </dl>
         }
-        <div>
-            <h4 style="margin-top:2%">@Html.DisplayFor(modelItem => item.Title)</h4>
-        </div>
+        else continue;
 
-        <dl>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.Description)
-            </dt>
-            <dd class="col-sm-10">
-                <div style="max-width:800px">@Html.DisplayFor(modelItem => item.Description)</div>
-                <hr />
-            </dd>
-            <dt class="col-sm-2">
-                @Html.DisplayNameFor(model => model.AdTypes)
-            </dt>
-            <dd class="col-sm-10">
-                @Html.DisplayFor(modelItem => item.AdTypes)
-            </dd>
-        </dl>
     }
-    else continue;
-
-}
-
+</body>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
     <script>

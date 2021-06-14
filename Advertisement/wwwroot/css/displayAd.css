@@ -8,4 +8,25 @@
     display:block;
     margin: 0 auto;
 }
-    
+
+.body {
+    background-color: #13171B;
+}
+
+.h4 {
+    color: white;
+}
+
+
+.label {
+    color: white;
+}
+.col-sm-2{
+    color:white;
+}
+.div{
+    color: white;
+}
+.col-sm-10{
+    color:white;
+}
